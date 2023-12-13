@@ -1,0 +1,40 @@
+{
+    "manifest_version":3,
+    "name":"Chat-Gpt-ext",
+    "version":"1.0",
+    "description":"For Cheating in exams",
+
+    "action":{
+        "default_popup":"popup.html",
+        "default_icon":"./images/icon64.png",
+        "default_title":"exclusively for cheating"
+    },
+
+    "icons":{
+        "128":"./images/icon64.png"
+    },
+
+    "background":{
+        "service_worker":"background.js"
+    },
+
+    "content_security_policy": {
+        "extension_pages": "script-src 'self' ; object-src 'self'"
+      },      
+
+    "permissions":[
+        "storage",
+        "tabs",
+        "activeTab",
+        "bookmarks",
+        "scripting"
+    ],
+
+    "content_scripts":[
+        {
+            "matches":["<all_urls>"],
+            "js":["content.js"]
+        }
+    ]
+
+}
